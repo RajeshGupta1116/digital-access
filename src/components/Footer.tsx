@@ -27,7 +27,7 @@ export default function Footer() {
 
         <div>
           <h4 className="text-white font-semibold mb-4">Contact</h4>
-          <p>Email: contact@digitalaccess.com</p>
+          <p>Email: se.rajeshgupta@gmail.com</p>
           <p>Enterprise Strategy Consultation Available</p>
         </div>
 
@@ -38,4 +38,5 @@ export default function Footer() {
 	  </div>
     </footer>
   );
+
 }
