@@ -22,6 +22,9 @@ export default function Navbar() {
           <Link to="/blog" className="hover:text-indigo-600 transition">
             Blog
           </Link>
+		   <Link to="/accessibility-audit" className="hover:text-indigo-600 transition">
+            Request a Demo
+          </Link>
         </div>
 
         <a
