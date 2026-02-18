@@ -8,6 +8,7 @@ import Blog from "./pages/Blog";
 import DevOpsAccessibility from "./pages/Blog/DevOpsAccessibility";
 import WCAG22Enterprise from "./pages/Blog/WCAG22Enterprise";
 import Footer from "./components/Footer";
+import AccessibilityAuditPage from "./pages/accessibility-audit";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
 		  <Route path="/Blog/devops-accessibility" element={<DevOpsAccessibility />} />
 		  <Route path="/Blog/wcag-22-enterprise" element={<WCAG22Enterprise />} />
+		  <Route path="/accessibility-audit" element={<AccessibilityAuditPage />} />
         </Routes>
       </div>
 	  <div className="pt-20">
