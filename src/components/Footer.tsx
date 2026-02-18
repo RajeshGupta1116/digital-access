@@ -22,6 +22,7 @@ export default function Footer() {
             <li><Link to="/platform">Platform</Link></li>
             <li><Link to="/blog">Insights</Link></li>
             <li><Link to="/about">About</Link></li>
+			<li><Link to="/accessibility-audit">Request a Demo</Link></li>
           </ul>
         </div>
 
@@ -38,5 +39,4 @@ export default function Footer() {
 	  </div>
     </footer>
   );
-
 }
