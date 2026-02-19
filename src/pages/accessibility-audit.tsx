@@ -105,6 +105,7 @@ export default function AccessibilityAuditPage() {
             action="https://formspree.io/f/mjgeevgo"
             method="POST"
           >
+            <input type="hidden" name="_next" value="https://digital-access.vercel.app/thank-you" />
             <input
               type="text"
               name="name"
@@ -191,3 +192,4 @@ export default function AccessibilityAuditPage() {
   );
 
 }
+
