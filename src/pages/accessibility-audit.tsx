@@ -1,4 +1,10 @@
+import { useState } from "react";
+import { useRouter } from "next/router";
+
 export default function AccessibilityAuditPage() {
+	const router = useRouter();
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState("");
   return (
     <main className="bg-white text-gray-900">
       
@@ -101,11 +107,32 @@ export default function AccessibilityAuditPage() {
           </h2>
 
           <form
-            className="mt-10 space-y-6"
-            action="https://formspree.io/f/mjgeevgo"
-            method="POST"
-          >
-            <input type="hidden" name="_next" value="https://digital-access.vercel.app/thank-you" />
+			className="mt-10 space-y-6"
+			onSubmit={async (e) => {
+				e.preventDefault();
+				setLoading(true);
+				setError("");
+			
+				const formData = new FormData(e.currentTarget);
+			
+				const response = await fetch("https://formspree.io/f/mjgeevgo", {
+				method: "POST",
+				body: formData,
+				headers: {
+					Accept: "application/json",
+				},
+				});
+			
+				if (response.ok) {
+				router.push("/thank-you");
+				} else {
+				setError("Something went wrong. Please try again.");
+				}
+			
+				setLoading(false);
+			}}
+		>
+		  <input type="hidden" name="_next" value="https://digital-access.vercel.app/thank-you" />
             <input
               type="text"
               name="name"
@@ -159,12 +186,17 @@ export default function AccessibilityAuditPage() {
             />
 
             <button
-              type="submit"
-              className="w-full py-4 bg-black text-white rounded-xl text-lg font-medium hover:opacity-90 transition"
-            >
-              Submit for Beta Review
-            </button>
-
+			type="submit"
+			disabled={loading}
+			className="w-full py-4 bg-black text-white rounded-xl text-lg font-medium hover:opacity-90 transition disabled:opacity-50"
+			>
+			{loading ? "Submitting..." : "Submit for Beta Review"}
+			</button>
+			{error && (
+				<p className="text-center text-sm text-red-600 mt-2">
+			{error}
+				</p>
+			)}
             <p className="text-center text-sm text-gray-500">
               We’ll respond within 24–48 hours.
             </p>
@@ -190,6 +222,4 @@ export default function AccessibilityAuditPage() {
 
     </main>
   );
-
 }
-
